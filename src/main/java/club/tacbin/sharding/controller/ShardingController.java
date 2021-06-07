@@ -34,7 +34,7 @@ public class ShardingController {
 
         ExamCopy examCopy = new ExamCopy();
         examCopy.setTitle(title);
-        examCopyMapper.insert(examCopy);
+//        examCopyMapper.insert(examCopy);
 
         for (int i = 0;i < 100;i++){
             Exam exam = new Exam();
