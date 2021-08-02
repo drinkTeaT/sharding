@@ -5,6 +5,8 @@ package club.tacbin.sharding.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * @author 01401951
  * @version 1.0
@@ -12,4 +14,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface ExamMapper extends BaseMapper<Exam> {
+    List<Exam> customQuery();
 }

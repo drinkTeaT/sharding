@@ -8,6 +8,8 @@ class ShardingApplicationTests {
 
     @Test
     void contextLoads() {
+        String value = String.format("%s_hello", "abc");
+        System.out.println(value);
     }
 
 }

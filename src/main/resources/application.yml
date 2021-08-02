@@ -27,6 +27,12 @@ spring:
             standard:
               sharding-column: id
               precise-algorithm-class-name: club.tacbin.sharding.config.ShardingRuleStrategy
+        t_exam_0_copy1: # 指定表名，此名必须和model中 @TableName(value = "t_exam") 一致
+          actual-data-nodes: db${0..1}.t_exam_0_copy1 #创建了两个表，下标0和1，所以此处配置你懂的
+          database-strategy:
+            standard:
+              sharding-column: id
+              precise-algorithm-class-name: club.tacbin.sharding.config.ShardingRuleStrategy
 #          table-strategy:
 #            standard: # 指定表的分片策略
 #              sharding-column: id #参与分片运算的列名
@@ -34,7 +40,15 @@ spring:
           key-generator: # 指定表的主键生成策略
             type: SNOWFLAKE  #SNOWFLAKE
             column: id  #指定主键
+#      binding-tables: t_exam,t_exam_0_copy1
     props:
       sql:
         show: true #输出日志
-
+server:
+  port: 8888
+# mybatis
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml

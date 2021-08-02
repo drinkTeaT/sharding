@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.tacbin.sharding.mapper.ExamMapper">
+    <select id="customQuery" resultType="club.tacbin.sharding.mapper.Exam">
+        select *
+        from `t_exam` A
+                 left join `t_exam_0_copy1` B
+                      on A.ID = B.ID
+        WHERE A.ID in ( 1400731140594147330,1400731152573079554,1400731154141749250,1400731154389213186)
+    </select>
+</mapper>
